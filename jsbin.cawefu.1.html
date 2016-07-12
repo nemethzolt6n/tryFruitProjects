@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by nemethzolt6n (http://jsbin.com/cawefu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Menő óra</title>
+  <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<style id="jsbin-css">
+*{ margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 30%;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 150px;
+  margin-top: -150px;
+  
+}
+</style>
+</head>
+<body>
+  <div id="clock"></div>
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = '0' + hours;
+  }
+  if (minutes <= 9) {
+    minutes = '0' + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = '0' + seconds;
+  }
+
+  var clockFace = hours + '#/#' + minutes + '#/#' + seconds;
+
+  document.getElementById('clock').innerHTML = clockFace;
+setTimeout(function() {
+    colorClock();
+  }, 1000);  
+  var hexColor = '#' + (hours+75) + (minutes+39) + (seconds+39);
+  document.body.style.background = hexColor;
+}
+colorClock();
+
+</script>
+</body>
+</html>
